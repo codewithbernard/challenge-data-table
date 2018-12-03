@@ -1,11 +1,20 @@
-var React = require('react')
-var ReactPivot = require('react-pivot')
-var createReactClass = require('create-react-class')
+import React from "react";
+import ReactPivot from "react-pivot";
+import { calculations, dimensions, reduce } from "./reportUtils";
 
-var rows = require('./data.json')
+var rows = require("./data.json");
 
-module.exports = createReactClass({
-  render () {
-    return <div>Report</div>
-  }
-})
+const Report = () => {
+  return (
+    <div>
+      <ReactPivot
+        rows={rows}
+        dimensions={dimensions}
+        reduce={reduce}
+        calculations={calculations}
+      />
+    </div>
+  );
+};
+
+module.exports = Report;
